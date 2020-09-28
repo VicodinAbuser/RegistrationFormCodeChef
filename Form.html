@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <style media="screen">
+        body {
+            background-image: url('./illustration-vector-business-concept_71983-53.jpg');
+            background-position: center;
+        }
+        article {
+            background-color: #eeeeee;
+        }
+    </style>
+    <title>Register</title>
+</head>
+
+<body>
+
+    <main class="pa4 black-80">
+        <h1 class='center tc'>Practice Contest</h1>
+        <h4 class='center tc'>Exclusively for students of Heritage Institute of Technology</h4>
+        <article class="br3 shadow-4 ba dark-gray b--black-10 mv4 w-40-l w-100-s pv5 center">
+
+            <form class="measure center ph5" method="POST" target="_blank" name="google-sheet" autocomplete="off">
+                <fieldset id="sign_up" class="ba b--transparent ph0 mh0 center">
+                    <legend class="f4 fw6 ph0 mh0 center">Registration Form</legend>
+                    <div class="mt3">
+                        <label class="db fw6 lh-copy f6 center" for="Name">Name</label>
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="text" name="Name" id="Name" placeholder="Full Name">
+                    </div>
+                    <div class="mv3">
+                        <label class="db fw6 lh-copy f6 center" for="email">Email</label>
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="mb3">
+                        <label class="db fw6 lh-copy f6 center" for="mobile">Mobile</label>
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="mobile" name="mobile" id="mobile" placeholder="WhatsApp Number">
+                    </div>
+                </fieldset>
+                <div class="">
+                    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib center" name="submit" type="submit" value="Register">
+                </div>
+            </form>
+        </article>
+
+    </main>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzo1gXnAIIJFfBFpnigGtonZSireYh-cPYl2qVOufUPl-kORP0/exec'
+        const form = document.forms['google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => window.location.href = 'https://www.codechef.com/CC1479')
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
