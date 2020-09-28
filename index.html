@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap" rel="stylesheet">
     <style media="screen">
         body {
             background-image: url('./illustration-vector-business-concept_71983-53.jpg');
@@ -12,6 +13,9 @@
         }
         article {
             background-color: #eeeeee;
+        }
+        h1, h3 {
+            font-family: 'Baloo Tammudu 2', cursive;
         }
     </style>
     <title>Register</title>
@@ -21,27 +25,27 @@
 
     <main class="pa4 black-80">
         <h1 class='center tc'>Practice Contest</h1>
-        <h4 class='center tc'>Exclusively for students of Heritage Institute of Technology</h4>
+        <h3 class='center tc'>Exclusively for students of Heritage Institute of Technology</h3>
         <article class="br3 shadow-4 ba dark-gray b--black-10 mv4 w-40-l w-100-s pv5 center">
 
-            <form class="measure center ph5" method="POST" target="_blank" name="google-sheet" autocomplete="off">
+            <form class="measure center ph3 ph5-l" method="POST" target="_blank" name="google-sheet" autocomplete="off">
                 <fieldset id="sign_up" class="ba b--transparent ph0 mh0 center">
                     <legend class="f4 fw6 ph0 mh0 center">Registration Form</legend>
                     <div class="mt3">
                         <label class="db fw6 lh-copy f6 center" for="Name">Name</label>
-                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="text" name="Name" id="Name" placeholder="Full Name">
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="text" name="Name" id="Name" placeholder="Full Name" required>
                     </div>
                     <div class="mv3">
                         <label class="db fw6 lh-copy f6 center" for="email">Email</label>
-                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="email" name="email" id="email" placeholder="Email">
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="email" name="Email" id="email" placeholder="Email" required>
                     </div>
                     <div class="mb3">
-                        <label class="db fw6 lh-copy f6 center" for="mobile">Mobile</label>
-                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="mobile" name="mobile" id="mobile" placeholder="WhatsApp Number">
+                        <label class="db fw6 lh-copy f6 center" for="Phone">Mobile</label>
+                        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-80 center" type="tel" name="Phone" id="mobile" placeholder="WhatsApp Number" required>
                     </div>
                 </fieldset>
                 <div class="">
-                    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib center" name="submit" type="submit" value="Register">
+                    <input class="ph3 pv2 input-reset ba b--black bg-black grow pointer f6 dib center white" name="submit" type="submit" value="Register">
                 </div>
             </form>
         </article>
@@ -55,6 +59,7 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault()
+            console.log(e)
             fetch(scriptURL, {
                     method: 'POST',
                     body: new FormData(form)
@@ -62,6 +67,12 @@
                 .then(response => window.location.href = 'https://www.codechef.com/CC1479')
                 .catch(error => console.error('Error!', error.message))
         })
+
+        // function handleSubmit() {
+        //     document.getElementbyTagName("article").innerHTML = "<p>
+        //     Thanks for registering! We will get back to you
+        //     </p>"
+        // }
     </script>
 
 </body>
